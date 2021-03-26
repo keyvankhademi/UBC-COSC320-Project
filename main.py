@@ -18,6 +18,14 @@ tweets = [x[5] for i, x in tweets.iterrows()]
 fixed_tweets = [naive_fix(x, shorties) for x in tweets]
 
 for i in range(len(tweets)):
+
+    f = True
+    for a, b in shorties.items():
+        if a in tweets[i].split():
+            f = False
+    if f:
+        continue
+
     print("=====")
     print(tweets[i])
     print(fixed_tweets[i])
